@@ -12,16 +12,14 @@ function App() {
   const [markdownData, setMarkdownData] = useState('')
 
   const tableMarkdown = `| Tables        | Are           | Cool  | \n | ------------- |:-------------:| -----:| \n | col 3 is      | right-aligned | $1600 | \n ------ \n [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)  `
-  const markdown = DOMPurify.sanitize(
-    '# Heading 1 \n ## Heading 2 \n [I\'m an inline-style link](https://www.google.com) \n\n ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1") '
-  )
-  const html = marked(markdown)
+  const markdown = '# Heading 1 \n ## Heading 2 \n [I\'m an inline-style link](https://www.google.com) \n\n ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1") '
+  
+  const html = marked(DOMPurify.sanitize(markdown))
 
   const jsCode =
     '```javascript \n var s = "JavaScript syntax highlighting"; \n alert(s);```'
 
-  const codeMarkdown = DOMPurify.sanitize(jsCode)
-  const codeHtml = marked(codeMarkdown)
+  const codeHtml = marked(DOMPurify.sanitize(jsCode))
 
   useEffect(() => {
     const fetchMarkdown = () => {
