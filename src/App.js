@@ -1,10 +1,8 @@
-import logo from './logo.svg';
+
 import './App.css';
 
 import DOMPurify from 'dompurify';
-
-const marked = require("marked");
-
+import marked from 'marked';
 
 function App() {
   const markedDown = DOMPurify.sanitize('# Marked in Node.js \n\n Rendered by **marked**.')
